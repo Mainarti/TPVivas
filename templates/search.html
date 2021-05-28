@@ -1,0 +1,17 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<hr>
+    <h3>{% block title %} Busca avançada {% endblock %}</h3>
+    <hr>
+    Informe os dados para a busca
+    <form class="form-inline my-2 my-lg-0" action="/advanced_search" method="GET">
+        <span>Id: </span><br>
+        <input class="form-control mr-sm-2" style="height: 30px;" type="text" name="cod"><br><br>
+        <span>Título: </span><br>
+        <input class="form-control mr-sm-2" style="height: 30px;" type="text" name="title"><br><br>
+        <span>Descrição: </span><br>
+        <input class="form-control mr-sm-2" style="height: 30px;" type="text" name="description"><br><br>
+        <button class="btn btn-outline-success btn-sm my-2 my-sm-0" type="submit">Busca</button>
+      </form>
+{% endblock %}

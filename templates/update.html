@@ -1,0 +1,136 @@
+{% extends 'base.html' %}
+{% block content %}
+<hr>
+    <h3>{% block title %} Atualizar registro {% endblock %}</h3>
+    <hr>
+    
+
+    <form action="/updating" method="POST">
+    {% for resultado in resultados %}
+        <span>ObejectId: {{resultado['_id']}}</span>
+        <hr>
+        <input type="text" name="cod" value="{{resultado['_id']}}" hidden>
+
+        <span style="font-weight: bold;">Geral:</span><br>
+        <span style="padding-left:25px">Id:</span>
+        <input type="text" name="_id" value="{{resultado['geral']['_id']}}" required>
+        <span style="padding-left:25px">Título:</span>
+        <input type="text" style="width: 300px;" name="titulo" value="{{resultado['geral']['titulo']}}" required>
+        <span style="padding-left:25px">Keywords:</span>
+        <textarea type="text" name="keywords" cols="30" required>{{resultado['geral']['keywords']}}</textarea><br><br>
+        <span style="padding-left:25px">Descrição:</span>
+        <textarea type="text" name="descricao" rows="4" cols="60" required>{{resultado['geral']['descricao']}}</textarea><br><br>
+        <hr>
+        <span style="font-weight: bold;">Ciclo de vida:</span><br>
+        <span style="padding-left:25px">Versão:</span>
+        <input type="text" name="versao" value="{{resultado['ciclo_de_vida']['versao']}}">
+        <span style="padding-left:25px">Status:</span>
+        <input type="text" name="status" value="{{resultado['ciclo_de_vida']['status']}}"><br><br>
+        <span style="padding-left:25px">Contribuinte:</span><br>
+        <span style="padding-left:50px">Entidade:</span>
+        <input type="text" name="entidade" value="{{resultado['ciclo_de_vida']['contribuinte']['entidade']}}">
+        <span style="padding-left:50px">Data:</span>
+        <input type="text" name="data" value="{{resultado['ciclo_de_vida']['contribuinte']['data']}}">
+        <span style="padding-left:50px">Papel:</span>
+        <input type="text" name="papel" value="{{resultado['ciclo_de_vida']['contribuinte']['papel']}}"><br><br>
+        <hr>
+        <span style="font-weight: bold;">Meta metadados:</span><br>
+        <span style="padding-left:25px">Identificador: </span><br>
+        <span style="padding-left:50px">Catalogo:</span>
+        <input type="text" name="catalogo" value="{{resultado['meta_metadados']['identificador']['catalogo']}}">
+        <span style="padding-left:50px">Entrada:</span>
+        <input type="text" name="entrada" value="{{resultado['meta_metadados']['identificador']['entrada']}}"><br><br>
+        <span style="padding-left:25px">Contribuinte:</span><br>
+        <span style="padding-left:50px">Entidade:</span>
+        <input type="text" name="entidade1" value="{{resultado['meta_metadados']['contribuinte']['entidade']}}">
+        <span style="padding-left:50px">Data:</span>
+        <input type="text" name="data1" value="{{resultado['meta_metadados']['contribuinte']['data']}}">
+        <span style="padding-left:50px">Papel:</span>
+        <input type="text" name="papel1" value="{{resultado['meta_metadados']['contribuinte']['papel']}}"><br><br>
+        <span style="padding-left:25px">Esquema de metadados:</span>
+        <input type="text" name="esquema_de_metadados" value="{{resultado['meta_metadados']['esquema_de_metadados']}}"><br><br>
+        <span style="padding-left:25px">Idioma:</span>
+        <input type="text" name="idioma" value="{{resultado['meta_metadados']['idioma']}}"><br><br>
+        <hr>
+        <span style="font-weight: bold;">Metadados técnicos:</span><br>
+        <span style="padding-left:25px">Formato:</span>
+        <input type="text" name="formato" value="{{resultado['metadados_tecnicos']['formato']}}">
+        <span style="padding-left:25px">Tamanho:</span>
+        <input type="text" name="tamanho" value="{{resultado['metadados_tecnicos']['tamanho']}}">
+        <span style="padding-left:25px">Localização:</span>
+        <input type="text" name="localizacao" value="{{resultado['metadados_tecnicos']['localizacao']}}"><br><br>
+        <span style="padding-left:25px">Requisitos:</span>
+        <input type="text" name="requisitos" value="{{resultado['metadados_tecnicos']['requisitos']}}">
+        <span style="padding-left:25px">Observações de instalações:</span>
+        <input type="text" name="observacoes_de_Instalacoes" value="{{resultado['metadados_tecnicos']['observacoes_de_Instalacoes']}}"><br><br>
+        <span style="padding-left:25px">Outros requisitos de sistema:</span>
+        <input type="text" name="outros_requisitos_de_sistema" value="{{resultado['metadados_tecnicos']['outros_requisitos_de_sistema']}}">
+        <span style="padding-left:25px">Duração:</span>
+        <input type="text" name="duracao" value="{{resultado['metadados_tecnicos']['duracao']}}"><br><br>
+        <hr>
+        <span style="font-weight: bold;">Aspectos educacionais:</span><br>
+        <span style="padding-left:25px">Tipo de nteratividade:</span>
+        <input type="text" name="tipo_de_interatividade" value="{{resultado['aspectos_educacionais']['tipo_de_interatividade']}}">
+        <span style="padding-left:25px">Tipo de recurso de aprendizado:</span>
+        <input type="text" name="tipo_de_recurso_de_aprendizado" value="{{resultado['aspectos_educacionais']['tipo_de_recurso_de_aprendizado']}}"><br><br>
+        <span style="padding-left:25px">Nível de interatividade:</span>
+        <input type="text" name="nivel_de_interatividade" value="{{resultado['aspectos_educacionais']['nivel_de_interatividade']}}">
+        <span style="padding-left:25px">Densidade semântica:</span>
+        <input type="text" name="densidade_semantica" value="{{resultado['aspectos_educacionais']['densidade_semantica']}}"><br><br>
+        <span style="padding-left:25px">Usuário final:</span>
+        <input type="text" name="usuario_final" value="{{resultado['aspectos_educacionais']['usuario_final']}}">
+        <span style="padding-left:25px">Contexto de aprendizagem:</span>
+        <input type="text" name="contexto_de_aprendizagem" value="{{resultado['aspectos_educacionais']['contexto_de_aprendizagem']}}"><br><br>
+        <span style="padding-left:25px">Idade recomendada:</span>
+        <input type="text" name="idade_recomendada" value="{{resultado['aspectos_educacionais']['idade_recomendada']}}">
+        <span style="padding-left:25px">Grau de dificuldade:</span>
+        <input type="text" name="grau_de_dificuldade" value="{{resultado['aspectos_educacionais']['grau_de_dificuldade']}}"><br><br>
+        <span style="padding-left:25px">Tempo de aprendizado:</span>
+        <input type="text" name="tempo_de_aprendizado" value="{{resultado['aspectos_educacionais']['tempo_de_aprendizado']}}">
+        <span style="padding-left:25px">Descrição:</span>
+        <textarea type="text" name="descricao1" rows="4" cols="60">{{resultado['aspectos_educacionais']['descricao']}}</textarea><br><br>
+        <span style="padding-left:25px">Linguagem:</span>
+        <input type="text" name="linguagem" value="{{resultado['aspectos_educacionais']['linguagem']}}"><br><br>
+        <hr>
+        <span style="font-weight: bold;">Direitos:</span><br>
+        <span style="padding-left:25px">Custo:</span>
+        <input type="text" name="custo" value="{{resultado['direitos']['custo']}}">
+        <span style="padding-left:25px">Direitos autorais:</span>
+        <input type="text" name="direitos_autorais" value="{{resultado['direitos']['direitos_autorais']}}"><br><br>
+        <span style="padding-left:25px">Descrição:</span>
+        <textarea type="text" name="descricao2" rows="4" cols="60">{{resultado['direitos']['descricao']}}</textarea><br><br>
+        <hr>
+        <span style="font-weight: bold;">Relações:</span><br>
+        <span style="padding-left:25px">Gênero:</span>
+        <input type="text" name="genero" value="{{resultado['relacoes']['genero']}}"><br><br>
+        <span style="padding-left:25px">Recurso:</span><br>
+        <span style="padding-left:50px">Referências:</span>
+        <input type="text" name="referencias" value="{{resultado['relacoes']['recurso']['referencias']}}">
+        <span style="padding-left:50px">Links externos:</span>
+        <input type="text" name="links_externos" value="{{resultado['relacoes']['recurso']['links_externos']}}"><br><br>
+        <hr>
+        <span style="font-weight: bold;">Classificação:</span><br>
+        <span style="padding-left:25px">Finalidade:</span>
+        <input type="text" name="finalidade" value="{{resultado['classificacao']['finalidade']}}">
+        <span style="padding-left:25px">Diretório:</span>
+        <input type="text" name="diretorio" value="{{resultado['classificacao']['diretorio']}}"><br><br>
+        <span style="padding-left:25px">Descrição:</span>
+        <textarea type="text" name="descricao3" rows="4" cols="60">{{resultado['classificacao']['descricao']}}</textarea>
+        <span style="padding-left:25px">Keywords:</span>
+        <textarea type="text" name="keywords1" cols="30" >{{resultado['classificacao']['keywords']}}</textarea><br><br>
+        <hr>
+        <span style="font-weight: bold;">Conteúdo:</span><br>
+        <span style="padding-left:25px">Data:</span>
+        <input type="text" name="data2" value="{{resultado['conteudo']['data']}}">
+        <span style="padding-left:25px">Entidade:</span>
+        <input type="text" name="entidade2" value="{{resultado['conteudo']['entidade']}}">
+        <span style="padding-left:25px">Imagens:</span>
+        <textarea type="text" name="imagens" cols="30" >{{resultado['conteudo']['imagens']}}</textarea><br><br>
+        <span style="padding-left:25px">Comentários:</span>
+        <input type="text" name="comentarios" value="{{resultado['conteudo']['comentarios']}}"><br><br>
+    {% endfor %}
+        <button class="btn btn-outline-dark" type="submit">Atualizar</button>
+    </form>
+    
+    
+{% endblock %}

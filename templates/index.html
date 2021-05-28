@@ -1,0 +1,34 @@
+{% extends 'base.html' %}
+{% block content %}
+<hr>
+{% if resultados %}
+    <h3>{% block title %} Objetos de Aprendizagem {% endblock %}</h3>
+<hr>
+    <table class="table">
+        <thead>
+            <tr>
+                <th scope="col">Id</th>
+                <th scope="col">Título</th>
+                <th scope="col">Alterar</th>
+                <th scope="col">Deletar</th>
+            </tr>
+        </thead>
+        <tbody>
+        
+        {% for resultado in resultados %}
+
+            <tr>
+                <th scope="row"><a href="./details?_id={{resultado['_id']}}" style="color: green;"> {{resultado['_id']}}</a></th>
+                <td>{{resultado["geral"]["titulo"]}}</td>
+                <td><a href="./update?_id={{resultado['_id']}}"><button class="btn btn-outline-dark btn-sm" type="submit">Alterar</button></a></td>
+                <td><a href="./delete?_id={{resultado['_id']}}"><button class="btn btn-outline-danger btn-sm" type="submit">Deletar</button></a></td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+{% else %}
+    Nenhum registro encontrado! Tente outro termo :)
+
+{% endif%}
+    
+{% endblock %}

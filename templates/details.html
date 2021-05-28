@@ -1,0 +1,95 @@
+{% extends 'base.html' %}
+{% block content %}
+<hr>
+    <h3>{% block title %} Detalhes do registro {% endblock %}</h3>
+<hr>
+{% for resultado in resultados %}
+
+<span>ObejectId: {{resultado['_id']}}</span>
+<hr>
+
+<span>"geral":{</span><br>
+    <span style="padding-left:25px">"Id":"{{resultado['geral']['_id']}}",</span><br>
+    <span style="padding-left:25px">"titulo":"{{resultado['geral']['titulo']}}",</span><br>
+    <span style="padding-left:25px">"keywords":"{{resultado.get("geral")["keywords"]}}",</span><br>
+    <span style="padding-left:25px">"descrição":"{{resultado.get("geral")["descricao"]}}",</span><br>
+<span>},</span><br>
+<span>"ciclo_de_vida":{</span><br>
+    <span style="padding-left:25px">"versao": "{{resultado.get("ciclo_de_vida")["versao"]}}",</span><br>
+    <span style="padding-left:25px">"status": "{{resultado.get("ciclo_de_vida")["status"]}}",</span><br>
+    <span style="padding-left:25px">"contribuinte": {</span><br>
+        <span style="padding-left:50px">"entidade": "{{resultado['ciclo_de_vida']['contribuinte']['entidade']}}",</span><br>
+        <span style="padding-left:50px">"data": "{{resultado['ciclo_de_vida']['contribuinte']['data']}}",</span><br>
+        <span style="padding-left:50px">"papel": "{{resultado['ciclo_de_vida']['contribuinte']['papel']}}"</span><br>
+    <span style="padding-left:25px">}</span><br>
+<span>},</span><br>
+
+<span>"meta_metadados":{</span><br>
+    <span style="padding-left:25px">"identificador": {</span><br>
+        <span style="padding-left:50px">"catalogo": "{{resultado['meta_metadados']['identificador']['catalogo']}}",</span><br>
+        <span style="padding-left:50px">"entrada": "{{resultado['meta_metadados']['identificador']['entrada']}}"</span><br>
+    <span style="padding-left:25px">},</span><br>
+    <span style="padding-left:25px">"contribuinte": {</span><br>
+        <span style="padding-left:50px">"entidade": "{{resultado['meta_metadados']['contribuinte']['entidade']}}",</span><br>
+        <span style="padding-left:50px">"data": "{{resultado['meta_metadados']['contribuinte']['data']}}",</span><br>
+        <span style="padding-left:50px">"papel": "{{resultado['meta_metadados']['contribuinte']['papel']}}",</span><br>
+    <span style="padding-left:25px">"},</span><br>
+    <span style="padding-left:25px">"esquema_de_metadados": "{{resultado.get("meta_metadados")["esquema_de_metadados"]}}",</span><br>
+    <span style="padding-left:25px">"idioma": "{{resultado.get("meta_metadados")["idioma"]}}"</span><br>
+<span>},</span><br>
+
+<span>"metadados_tecnicos" :{</span><br>
+<span style="padding-left:25px">"formato": "{{resultado.get("metadados_tecnicos")["formato"]}}",</span><br>
+<span style="padding-left:25px">"tamanho": "{{resultado.get("metadados_tecnicos")["tamanho"]}}",</span><br>
+<span style="padding-left:25px">"localizacao":"{{resultado.get("metadados_tecnicos")["localizacao"]}}",</span><br>
+<span style="padding-left:25px">"requisitos": "{{resultado.get("metadados_tecnicos")["requisitos"]}}",</span><br>
+<span style="padding-left:25px">"observacoes_de_Instalacoes": "{{resultado.get("metadados_tecnicos")["observacoes_de_Instalacoes"]}}",</span><br>
+<span style="padding-left:25px">"outros_requisitos_de_sistema": "{{resultado.get("metadados_tecnicos")["outros_requisitos_de_sistema"]}}",</span><br>
+<span style="padding-left:25px">"duracao": "{{resultado.get("metadados_tecnicos")["duracao"]}}"</span><br>
+<span>},</span><br>
+
+<span>"aspectos_educacionais": {</span><br>
+<span style="padding-left:25px">"tipo_de_interatividade": "{{resultado.get("aspectos_educacionais")["tipo_de_interatividade"]}}",</span><br>
+<span style="padding-left:25px">"tipo_de_recurso_de_aprendizado": "{{resultado.get("aspectos_educacionais")["tipo_de_recurso_de_aprendizado"]}}",</span><br>
+<span style="padding-left:25px">"nivel_de_interatividade": "{{resultado.get("aspectos_educacionais")["nivel_de_interatividade"]}}",</span><br>
+<span style="padding-left:25px">"densidade_semantica": "{{resultado.get("aspectos_educacionais")["densidade_semantica"]}}",</span><br>
+<span style="padding-left:25px">"usuario_final": "{{resultado.get("aspectos_educacionais")["usuario_final"]}}",</span><br>
+<span style="padding-left:25px">"contexto_de_aprendizagem": "{{resultado.get("aspectos_educacionais")["contexto_de_aprendizagem"]}}",</span><br>
+<span style="padding-left:25px">"idade_recomendada": "{{resultado.get("aspectos_educacionais")["idade_recomendada"]}}",</span><br>
+<span style="padding-left:25px">"grau_de_dificuldade": "{{resultado.get("aspectos_educacionais")["grau_de_dificuldade"]}}",</span><br>
+<span style="padding-left:25px">"tempo_de_aprendizado": "{{resultado.get("aspectos_educacionais")["tempo_de_aprendizado"]}}",</span><br>
+<span style="padding-left:25px">"descricao": "{{resultado.get("aspectos_educacionais")["descricao"]}}",</span><br>
+<span style="padding-left:25px">"linguagem": "{{resultado.get("aspectos_educacionais")["linguagem"]}}"</span><br>
+<span>},</span><br>
+
+<span>"direitos" : {</span><br>
+<span style="padding-left:25px">"custo": "{{resultado.get("direitos")["custo"]}}",</span><br>
+<span style="padding-left:25px">"direitos_autorais": "{{resultado.get("direitos")["direitos_autorais"]}}",</span><br>
+<span style="padding-left:25px">"descricao": "{{resultado.get("direitos")["descricao"]}}"</span><br>
+<span>},</span><br>
+
+<span>"relacoes" : {</span><br>
+<span style="padding-left:25px">"genero": "{{resultado.get("relacoes")["genero"]}}",</span><br>
+<span style="padding-left:25px">"recurso": {</span><br>
+<span style="padding-left:50px">"referencias": "{{resultado['relacoes']['recurso']['referencias']}}"</span><br>
+<span style="padding-left:50px">"links_externos": "{{resultado['relacoes']['recurso']['links_externos']}}",</span><br>
+<span style="padding-left:25px">}</span><br>
+<span>},</span><br>
+
+<span>"classificacao" : {</span><br>
+<span style="padding-left:25px">"finalidade": "{{resultado.get("classificacao")["finalidade"]}}",</span><br>
+<span style="padding-left:25px">"diretorio": "{{resultado.get("classificacao")["diretorio"]}}",</span><br>
+<span style="padding-left:25px">"descricao": "{{resultado.get("classificacao")["descricao"]}}",</span><br>
+<span style="padding-left:25px">"keywords": "{{resultado.get("classificacao")["keywords"]}}",</span><br>
+<span>},</span><br>
+
+<span>"conteudo" : {</span><br>
+<span style="padding-left:25px">"data": "{{resultado.get("conteudo")["data"]}}",</span><br>
+<span style="padding-left:25px">"entidade": "{{resultado.get("conteudo")["entidade"]}}",</span><br>
+<span style="padding-left:25px">"imagens": "{{resultado.get("conteudo")["imagens"]}}",</span><br>
+<span style="padding-left:25px">"comentarios": "{{resultado.get("conteudo")["comentarios"]}}"</span><br>
+<span>}</span><br>
+<span>}</span><br>
+{% endfor %}
+
+{% endblock %}

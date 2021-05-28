@@ -1,0 +1,141 @@
+{% extends 'base.html' %}
+{% block content %}
+<hr>
+    <h3>{% block title %} Cadastrar novo objeto de aprendizagem {% endblock %}</h3>
+    <hr>
+
+    <!--<a href="./api"><button class="btn btn-outline-dark my-2 my-sm-0" type="submit">Cadastrar video do YT</button></a>-->
+    <span>Insira o id do vídeo desejado ou insira as informações manualmente</span>
+    <hr>
+    <form class="form-inline my-2 my-lg-0" action="/video_api" method="GET">
+        <input class="form-control mr-sm-2" style="height: 30px;"  name="idVideo" placeholder="Id do vídeo">
+        <button class="btn btn-outline-dark btn-sm my-2 my-sm-0" type="submit">Cadastrar video do YT</button><br><br>
+        
+    </form>
+    <span>Exemplo: i6Oi-YtXnAU</span>
+    <hr>
+    
+    <form action="/creating" method="POST">
+        <span style="font-weight: bold;">Geral:</span><br>
+        <span style="padding-left:25px">Id:</span>
+        <input type="text" name="_id" required>
+        <span style="padding-left:25px">Título:</span>
+        <input type="text" name="titulo" required>
+        <span style="padding-left:25px">Keywords:</span>
+        <textarea type="text" name="keywords" cols="30" placeholder="'keyword1','keyword2'" required></textarea><br><br>
+        <span style="padding-left:25px">Descrição:</span>
+        <textarea type="text" name="descricao" rows="4" cols="60" required></textarea><br><br>
+        <hr>
+        <span style="font-weight: bold;">Ciclo de vida:</span><br>
+        <span style="padding-left:25px">Versão:</span>
+        <input type="text" name="versao">
+        <span style="padding-left:25px">Status:</span>
+        <input type="text" name="status"><br><br>
+        <span style="padding-left:25px">Contribuinte:</span><br>
+        <span style="padding-left:50px">Entidade:</span>
+        <input type="text" name="entidade">
+        <span style="padding-left:50px">Data:</span>
+        <input type="text" name="data">
+        <span style="padding-left:50px">Papel:</span>
+        <input type="text" name="papel"><br><br>
+        <hr>
+        <span style="font-weight: bold;">Meta metadados:</span><br>
+        <span style="padding-left:25px">Identificador: </span><br>
+        <span style="padding-left:50px">Catalogo:</span>
+        <input type="text" name="catalogo">
+        <span style="padding-left:50px">Entrada:</span>
+        <input type="text" name="entrada"><br><br>
+        <span style="padding-left:25px">Contribuinte:</span><br>
+        <span style="padding-left:50px">Entidade:</span>
+        <input type="text" name="entidade1">
+        <span style="padding-left:50px">Data:</span>
+        <input type="text" name="data1">
+        <span style="padding-left:50px">Papel:</span>
+        <input type="text" name="papel1"><br><br>
+        <span style="padding-left:25px">Esquema de metadados:</span>
+        <input type="text" name="esquema_de_metadados"><br><br>
+        <span style="padding-left:25px">Idioma:</span>
+        <input type="text" name="idioma"><br><br>
+        <hr>
+        <span style="font-weight: bold;">Metadados técnicos:</span><br>
+        <span style="padding-left:25px">Formato:</span>
+        <input type="text" name="formato">
+        <span style="padding-left:25px">Tamanho:</span>
+        <input type="text" name="tamanho">
+        <span style="padding-left:25px">Localização:</span>
+        <input type="text" name="localizacao"><br><br>
+        <span style="padding-left:25px">Requisitos:</span>
+        <input type="text" name="requisitos">
+        <span style="padding-left:25px">Observações de instalações:</span>
+        <input type="text" name="observacoes_de_Instalacoes"><br><br>
+        <span style="padding-left:25px">Outros requisitos de sistema:</span>
+        <input type="text" name="outros_requisitos_de_sistema">
+        <span style="padding-left:25px">Duração:</span>
+        <input type="text" name="duracao"><br><br>
+        <hr>
+        <span style="font-weight: bold;">Aspectos educacionais:</span><br>
+        <span style="padding-left:25px">Tipo de interatividade:</span>
+        <input type="text" name="tipo_de_interatividade">
+        <span style="padding-left:25px">Tipo de recurso de aprendizado:</span>
+        <input type="text" name="tipo_de_recurso_de_aprendizado"><br><br>
+        <span style="padding-left:25px">Nível de interatividade:</span>
+        <input type="text" name="nivel_de_interatividade">
+        <span style="padding-left:25px">Densidade semântica:</span>
+        <input type="text" name="densidade_semantica"><br><br>
+        <span style="padding-left:25px">Usuário final:</span>
+        <input type="text" name="usuario_final">
+        <span style="padding-left:25px">Contexto de aprendizagem:</span>
+        <input type="text" name="contexto_de_aprendizagem"><br><br>
+        <span style="padding-left:25px">Idade recomendada:</span>
+        <input type="text" name="idade_recomendada">
+        <span style="padding-left:25px">Grau de dificuldade:</span>
+        <input type="text" name="grau_de_dificuldade"><br><br>
+        <span style="padding-left:25px">Tempo de aprendizado:</span>
+        <input type="text" name="tempo_de_aprendizado">
+        <span style="padding-left:25px">Descrição:</span>
+        <textarea type="text" name="descricao1" rows="4" cols="60"></textarea><br><br>
+        <span style="padding-left:25px">Linguagem:</span>
+        <input type="text" name="linguagem"><br><br>
+        <hr>
+        <span style="font-weight: bold;">Direitos:</span><br>
+        <span style="padding-left:25px">Custo:</span>
+        <input type="text" name="custo">
+        <span style="padding-left:25px">Direitos autorais:</span>
+        <input type="text" name="direitos_autorais"><br><br>
+        <span style="padding-left:25px">Descrição:</span>
+        <textarea type="text" name="descricao2" rows="4" cols="60"></textarea><br><br>
+        <hr>
+        <span style="font-weight: bold;">Relações:</span><br>
+        <span style="padding-left:25px">Gênero:</span>
+        <input type="text" name="genero"><br><br>
+        <span style="padding-left:25px">Recurso:</span><br>
+        <span style="padding-left:50px">Referências:</span>
+        <input type="text" name="referencias">
+        <span style="padding-left:50px">Links externos:</span>
+        <input type="text" name="links_externos"><br><br>
+        <hr>
+        <span style="font-weight: bold;">Classificação:</span><br>
+        <span style="padding-left:25px">Finalidade:</span>
+        <input type="text" name="finalidade">
+        <span style="padding-left:25px">Diretório:</span>
+        <input type="text" name="diretorio"><br><br>
+        <span style="padding-left:25px">Descrição:</span>
+        <textarea type="text" name="descricao3" rows="4" cols="60"></textarea>
+        <span style="padding-left:25px">Keywords:</span>
+        <textarea type="text" name="keywords1" cols="30" placeholder="'keyword1','keyword2'"></textarea><br><br>
+        <hr>
+        <span style="font-weight: bold;">Conteúdo:</span><br>
+        <span style="padding-left:25px">Data:</span>
+        <input type="text" name="data2">
+        <span style="padding-left:25px">Entidade:</span>
+        <input type="text" name="entidade2">
+        <span style="padding-left:25px">Imagens:</span>
+        <textarea type="text" name="imagens" cols="30"></textarea><br><br>
+        <span style="padding-left:25px">Comentários:</span>
+        <input type="text" name="comentarios"><br><br>
+
+        <button class="btn btn-outline-dark" type="submit">Cadastrar</button>
+    </form>
+    
+    
+{% endblock %}
